@@ -1,5 +1,5 @@
 # Ignore all CSV files by default
-*.csv
+
 
 # Except for specific CSV files (if needed)
 #!important_data.csv
