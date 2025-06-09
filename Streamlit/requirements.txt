@@ -6,5 +6,5 @@ folium
 numpy
 matplotlib
 seaborn
-streamlit_folium 
-st_folium
+streamlit-folium 
+
