@@ -11,21 +11,21 @@ import random
 st.set_page_config(page_title="Predicción Flotilla", layout="centered")
 
 # Cargar modelos y datos históricos (ajusta rutas)
-modelo_principal = joblib.load('modelo_rf.pkl')
-vin_encoder = joblib.load('vin_encoder.pkl')
-cc_encoder = joblib.load('cc_encoder.pkl')
+modelo_principal = joblib.load('Streamlit/modelo_rf.pkl')
+vin_encoder = joblib.load('Streamlit/vin_encoder.pkl')
+cc_encoder = joblib.load('Streamlit/cc_encoder.pkl')
 
 modelos_secundarios = {
-    'KG C02': joblib.load('modelo_KG C02.pkl'),
-    'TON C02': joblib.load('modelo_TON C02.pkl'),
-    'Arboles': joblib.load('modelo_Arboles.pkl'),
-    'Importe Transacción': joblib.load('modelo_Importe Transacción.pkl'),
-    'Rendimiento': joblib.load('modelo_Rendimiento.pkl'),
+    'KG C02': joblib.load('Streamlit/modelo_KG C02.pkl'),
+    'TON C02': joblib.load('Streamlit/modelo_TON C02.pkl'),
+    'Arboles': joblib.load('Streamlit/modelo_Arboles.pkl'),
+    'Importe Transacción': joblib.load('Streamlit/modelo_Importe Transacción.pkl'),
+    'Rendimiento': joblib.load('Streamlit/modelo_Rendimiento.pkl'),
 }
 
 precio_por_defecto = 20.0
 
-df_hist = pd.read_csv('data_processed.csv', parse_dates=['mes'])  # Ajusta columna fecha
+df_hist = pd.read_csv('Streamlit/data_processed.csv', parse_dates=['mes'])  # Ajusta columna fecha
 
 def mostrar_historial_ambiental(vin_code, cc_code, df_hist):
     df_filtrado = df_hist[(df_hist['VIN_CODE'] == vin_code) & (df_hist['CC_CODE'] == cc_code)]
